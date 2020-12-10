@@ -14,20 +14,25 @@ export class SendEmailComponent implements OnInit {
     lambdaUrl: string;
     response: string;
     color: string;
+    url: string;
 
     constructor() {}
 
     ngOnInit() {
         this.email = "";
-        this.lambdaUrl = "";
         this.response = "";
         this.color = "";
+        this.url = "";
     }
 
     public async sendEmail(event: Event) {
         event.preventDefault();
-        this.lambdaUrl = "https://11mdq1nryg.execute-api.eu-west-1.amazonaws.com/dev/send?email=" + this.email;
-        fetch(this.lambdaUrl)
+        this.url = "https://11mdq1nryg.execute-api.eu-west-1.amazonaws.com/dev/sendEmail";
+
+        fetch(this.url, {
+            method: "POST",
+            body: JSON.stringify({email: this.email})
+        })
         .then(response => {
             if (response.status == 200) {
                 this.response = "Email sent successfully";
