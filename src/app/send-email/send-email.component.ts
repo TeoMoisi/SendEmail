@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import { SendEmailConstants } from "../constants/send-email";
 
 @Component({
     selector: 'app-send-email',
@@ -22,12 +21,11 @@ export class SendEmailComponent implements OnInit {
         this.email = "";
         this.response = "";
         this.color = "";
-        this.url = "";
+        this.url = SendEmailConstants.LAMBDA_LOCAL_ENDPOINT;
     }
 
     public async sendEmail(event: Event) {
         event.preventDefault();
-        this.url = "https://11mdq1nryg.execute-api.eu-west-1.amazonaws.com/dev/sendEmail";
 
         fetch(this.url, {
             method: "POST",
@@ -35,13 +33,24 @@ export class SendEmailComponent implements OnInit {
         })
         .then(response => {
             if (response.status == 200) {
-                this.response = "Email sent successfully";
-                this.color = "green";
+                this.emailSentResponse(
+                    SendEmailConstants.EMAIL_SUCCESS, 
+                    SendEmailConstants.GREEN);
+            } else {
+                this.emailSentResponse(
+                    SendEmailConstants.EMAIL_FAILED, 
+                    SendEmailConstants.RED);
             }
         })
         .catch(error => {
-            this.response = "Could not send email";
-            this.color = "red";
-            console.log(error)});
+            this.emailSentResponse(
+                SendEmailConstants.EMAIL_FAILED, 
+                SendEmailConstants.RED);
+        });
+    }
+
+    public emailSentResponse(response: string, color: string) {
+        this.response = response;
+        this.color = color;
     }
 }
