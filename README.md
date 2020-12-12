@@ -20,6 +20,12 @@ version 9.1.0
  ```
  otherwise, I was getting an error saying that .env.ts was not generated.
  
+# How it works:
+ * Access `localhost:4200` in the browser and go to 'Send Email' from the navbar.
+ * There, you will see an input label to input the destination email and a send button.
+ * [Success image](https://drive.google.com/file/d/14tvR_mOh2HeSkn1fNKYPx_aIkIOhqZZr/view?usp=sharing) 
+ * [Failure image](https://drive.google.com/file/d/1fQBi3IRWIZtgW_Qjv3jhfvFBvs3UMkJi/view?usp=sharing)
+ 
 # Project structure
 
 ```
