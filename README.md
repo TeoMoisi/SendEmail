@@ -14,7 +14,12 @@ version 9.1.0
  ```sh
  npm start
  ```
-
+ Note: In my case, before running npm start for the first time, I had to run:
+  ```sh
+ ngx-scripts env npm_package_version
+ ```
+ otherwise, I was getting an error saying that .env.ts was not generated.
+ 
 # Project structure
 
 ```
