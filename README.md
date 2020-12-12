@@ -23,8 +23,12 @@ version 9.1.0
 # How it works:
  * Access `localhost:4200` in the browser and go to 'Send Email' from the navbar.
  * There, you will see an input label to input the destination email and a send button.
- * ![Success image](https://drive.google.com/file/d/14tvR_mOh2HeSkn1fNKYPx_aIkIOhqZZr/view?usp=sharing) 
- * ![Failure image](https://drive.google.com/file/d/1fQBi3IRWIZtgW_Qjv3jhfvFBvs3UMkJi/view?usp=sharing)
+ * [Success image](https://drive.google.com/file/d/14tvR_mOh2HeSkn1fNKYPx_aIkIOhqZZr/view?usp=sharing) 
+ * [Failure image](https://drive.google.com/file/d/1fQBi3IRWIZtgW_Qjv3jhfvFBvs3UMkJi/view?usp=sharing)
+ 
+# Lambda endpoint:
+* The sendEmail lambda endpoint can be access either locally or remotely.
+* In src/app/send-email/send-email.component.ts, you can modify the url to point to LAMBDA_LOCAL_ENDPOINT or LAMBDA_REMOTE_ENDPOINT.
  
 # Project structure
 
